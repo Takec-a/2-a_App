@@ -12,6 +12,10 @@
     },
     "cordova-plugin-dialogs": {
       "PACKAGE_NAME": "jp.co.orust.bio"
+    },
+    "cordova-plugin-camera": {
+      "ANDROID_SUPPORT_V4_VERSION": "27.+",
+      "PACKAGE_NAME": "jp.co.orust.bio"
     }
   },
   "dependent_plugins": {}
