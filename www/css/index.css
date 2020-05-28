@@ -16,10 +16,22 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-* {
-    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
-}
-
+ * {
+   margin:0; padding:0;
+ }
+ footer {
+   display: inline-block;/* 文章の流れの中に置いている画像なので inline でも良いが今回は inline-block が適当 */
+   position: relative; /* 通常の文章の流れにある要素なので relative が適切 */
+   top: 500px; /* 下に 10px 下げる */
+ }
+ p {
+   font-size:24px;
+   font-weight:normal;
+   margin:0px;
+   overflow:visible;
+   padding:0px;
+   text-align:center;
+    }
 body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
@@ -94,13 +106,13 @@ h1 {
     50% { opacity: 0.4; }
     to { opacity: 1.0; }
 }
- 
+
 @-webkit-keyframes fade {
     from { opacity: 1.0; }
     50% { opacity: 0.4; }
     to { opacity: 1.0; }
 }
- 
+
 .blink {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
