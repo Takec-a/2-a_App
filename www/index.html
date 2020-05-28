@@ -8,16 +8,16 @@
         <link rel="stylesheet"  href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css" />
         <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
-        <script src="js/main.js"></script>
-        <script src="cordova.js"></script>
         <title>Hello World</title>
     </head>
     <body>
         <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
+            <h1>Camera</h1>
+            <div>
+                <button id="take_pictures">撮影ボタン</button>
+                <div>
+                    <img src="" id="image" width="500px" />
+                </div>
             </div>
         </div>
         <script type="text/javascript" src="cordova.js"></script>
@@ -25,7 +25,7 @@
     </body>
     <footer id="footer">
       <ul>
-        <li><input type="image" onClick="showAlertDialog()" src="img/logo.png" width="40" height="40">
+        <li><input type="image" onClick="showAlertDialog()" src="img/splash.jpg" width="40" height="40">
       </ul>
     </footer>
 </html>

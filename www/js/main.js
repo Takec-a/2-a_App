@@ -1,41 +1,29 @@
-function alertDismissed() {
-    // 処理
-}
-
-function showAlertDialog() {
-    navigator.notification.alert(　 //カスタマイズ可能なメッセージダイアログボックスを表示
-        "メッセージ",
-        alertDismissed, // コールバック
-        "タイトル", // タイトル
-        "閉じる" // ボタン名
-  );
-}
-document.addEventListener("backbutton", onBackClickEvent, false); //戻るボタンを押したときに発生
-function confirmCallback(id) {
-    if (1 == id) { //終了のボタンが押されたら
-        navigator.app.exitApp(); //アプリ終了
+var app = {
+    initialize: function() {
+        this.bindEvents();
+    },
+    bindEvents: function() {
+        document.addEventListener('deviceready', this.onDeviceReady, false);
+    },
+    onDeviceReady: function() {
+        var button = document.getElementById("take_pictures");
+        button.addEventListener("click", takePictures);
     }
-}
+};
 
-function onBackClickEvent() {
-        navigator.notification.confirm( //カスタマイズ可能な確認用ダイアログボックスを表示
-            "アプリケーションを終了しますか？", // メッセージ
-            confirmCallback, // コールバックは、押されたボタンのインデックスで呼び出す
-            "終了メニュー", // タイトル
-            "終了,キャンセル" // ボタンの表示名
-        )
-}
+// 初期化
+app.initialize();
 
-//トップページかどうかを設定する場合
-/*function onBackClickEvent() {
-    if (location.href == "file:///android_asset/www/index.html") { //トップページなら
-        navigator.notification.confirm( //カスタマイズ可能な確認用ダイアログボックスを表示
-            "アプリケーションを終了しますか？", // メッセージ
-            confirmCallback, // コールバックは、押されたボタンのインデックスで呼び出す
-            "終了メニュー", // タイトル
-            "終了,キャンセル" // ボタンの表示名
-        )
-    } else {
-        history.back(); //一つ前のページへ戻る
-    }
-}*/
+// 「撮影ボタン」が押された時の処理
+function takePictures(){
+    navigator.camera.getPicture(cameraSuccess, cameraError, { quality: 80, destinationType: Camera.DestinationType.DATA_URL });
+}
+// 撮影成功時の処理
+function cameraSuccess(image){
+    var img = document.getElementById("image");
+    img.src = "data:image/jpeg;base64," + image;
+}
+// 撮影失敗時の処理
+function cameraError(message){
+    alert("Failed!!: " + message);
+}
