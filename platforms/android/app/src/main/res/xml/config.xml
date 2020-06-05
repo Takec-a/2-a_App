@@ -13,12 +13,9 @@
     <feature name="SocialSharing">
         <param name="android-package" value="nl.xservices.plugins.SocialSharing" />
     </feature>
-<<<<<<< HEAD
-=======
     <feature name="Geolocation">
         <param name="android-package" value="org.apache.cordova.geolocation.Geolocation" />
     </feature>
->>>>>>> 593d6e11a894e30a846ed8c2e7fa990d0ccfdeb7
     <name>Nebou</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
