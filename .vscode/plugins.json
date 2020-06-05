@@ -1,1 +1,1 @@
-{"plugins":["cordova-plugin-whitelist","cordova-plugin-dialogs","cordova-plugin-camera"]}
+{"plugins":["cordova-plugin-whitelist","cordova-plugin-dialogs","cordova-plugin-camera","cordova-plugin-x-socialsharing","es6-promise-plugin"]}
