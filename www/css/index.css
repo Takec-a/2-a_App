@@ -38,8 +38,9 @@ body {
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
     background-color:#E4E4E4;
-    background-image:url(../img/splash.jpg);
-    background-size:cover ;
+    background-image:url(../img/kakedasu_school.jpg);
+    background-repeat:repeat-x ;
+    /*background-size:cover ;*/
     font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
     font-size:12px;
     height:100vh;
