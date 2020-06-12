@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" type="text/css" href="css/jikanwari.css">
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/jikanwari.js"></script>
     <title>遅刻防止アプリ</title>
 </head>
     <body>
@@ -13,7 +15,10 @@
                 <div>
                     <!--<img src="" id="image" width="500px" />-->
                 </div>
-                <!--<p>時間割り</p>-->
+                
+                <!--<p>時間割りの表（開始）</p>-->
+                <div id="table"></div>
+                    
                     <table border="10" align="left">
                         <tr>
                             <th>時間/曜日</th>
@@ -30,42 +35,36 @@
                                 <select id="jyugyo" name="jyugyo">
                                     <option value="#">エランデ</option>
                                     <option value="Y">有</option>
-                                    <option vallue="N">無</option>
                                 </select>
                             </td>
                             <td>
                                 <select id="jyugyo" name="jyugyo">
                                     <option value="#">エランデ</option>
                                     <option value="Y">有</option>
-                                    <option vallue="N">無</option>
                                 </select>
                             </td>
                             <td>
                                 <select id="jyugyo" name="jyugyo">
                                     <option value="#">エランデ</option>
                                     <option value="Y">有</option>
-                                    <option vallue="N">無</option>
                                 </select>
                             </td>
                             <td>
                                 <select id="jyugyo" name="jyugyo">
                                     <option value="#">エランデ</option>
                                     <option value="Y">有</option>
-                                    <option vallue="N">無</option>
                                 </select>
                             </td>
                             <td>
                                 <select id="jyugyo" name="jyugyo">
                                     <option value="#">エランデ</option>
                                     <option value="Y">有</option>
-                                    <option vallue="N">無</option>
                                 </select>
                             </td>
                             <td>
                                 <select id="jyugyo" name="jyugyo">
                                     <option value="#">エランデ</option>
                                     <option value="Y">有</option>
-                                    <option vallue="N">無</option>
                                 </select>
                             </td>
                         </tr>
@@ -75,42 +74,36 @@
                                 <select id="jyugyo" name="jyugyo">
                                     <option value="#">エランデ</option>
                                     <option value="Y">有</option>
-                                    <option vallue="N">無</option>
                                 </select>
                             </td>
                             <td>
                                 <select id="jyugyo" name="jyugyo">
                                     <option value="#">エランデ</option>
                                     <option value="Y">有</option>
-                                    <option vallue="N">無</option>
                                 </select>
                             </td>
                             <td>
                                 <select id="jyugyo" name="jyugyo">
                                     <option value="#">エランデ</option>
                                     <option value="Y">有</option>
-                                    <option vallue="N">無</option>
                                 </select>
                             </td>
                             <td>
                                 <select id="jyugyo" name="jyugyo">
                                     <option value="#">エランデ</option>
                                     <option value="Y">有</option>
-                                    <option vallue="N">無</option>
                                 </select>
                             </td>
                             <td>
                                 <select id="jyugyo" name="jyugyo">
                                     <option value="#">エランデ</option>
                                     <option value="Y">有</option>
-                                    <option vallue="N">無</option>
                                 </select>
                             </td>
                             <td>
                                 <select id="jyugyo" name="jyugyo">
                                     <option value="#">エランデ</option>
                                     <option value="Y">有</option>
-                                    <option vallue="N">無</option>
                                 </select>
                             </td>
                         </tr>
@@ -120,42 +113,36 @@
                                 <select id="jyugyo" name="jyugyo">
                                     <option value="#">エランデ</option>
                                     <option value="Y">有</option>
-                                    <option vallue="N">無</option>
                                 </select>
                             </td>
                             <td>
                                 <select id="jyugyo" name="jyugyo">
                                     <option value="#">エランデ</option>
                                     <option value="Y">有</option>
-                                    <option vallue="N">無</option>
                                 </select>
                             </td>
                             <td>
                                 <select id="jyugyo" name="jyugyo">
                                     <option value="#">エランデ</option>
                                     <option value="Y">有</option>
-                                    <option vallue="N">無</option>
                                 </select>
                             </td>
                             <td>
                                 <select id="jyugyo" name="jyugyo">
                                     <option value="#">エランデ</option>
                                     <option value="Y">有</option>
-                                    <option vallue="N">無</option>
                                 </select>
                             </td>
                             <td>
                                 <select id="jyugyo" name="jyugyo">
                                     <option value="#">エランデ</option>
                                     <option value="Y">有</option>
-                                    <option vallue="N">無</option>
                                 </select>
                             </td>
                             <td>
                                 <select id="jyugyo" name="jyugyo">
                                     <option value="#">エランデ</option>
                                     <option value="Y">有</option>
-                                    <option vallue="N">無</option>
                                 </select>
                             </td>
                         </tr>
@@ -165,42 +152,36 @@
                                 <select id="jyugyo" name="jyugyo">
                                     <option value="#">エランデ</option>
                                     <option value="Y">有</option>
-                                    <option vallue="N">無</option>
                                 </select>
                             </td>
                             <td>
                                 <select id="jyugyo" name="jyugyo">
                                     <option value="#">エランデ</option>
                                     <option value="Y">有</option>
-                                    <option vallue="N">無</option>
                                 </select>
                             </td>
                             <td>
                                 <select id="jyugyo" name="jyugyo">
                                     <option value="#">エランデ</option>
                                     <option value="Y">有</option>
-                                    <option vallue="N">無</option>
                                 </select>
                             </td>
                             <td>
                                 <select id="jyugyo" name="jyugyo">
                                     <option value="#">エランデ</option>
                                     <option value="Y">有</option>
-                                    <option vallue="N">無</option>
                                 </select>
                             </td>
                             <td>
                                 <select id="jyugyo" name="jyugyo">
                                     <option value="#">エランデ</option>
                                     <option value="Y">有</option>
-                                    <option vallue="N">無</option>
                                 </select>
                             </td>
                             <td>
                                 <select id="jyugyo" name="jyugyo">
                                     <option value="#">エランデ</option>
                                     <option value="Y">有</option>
-                                    <option vallue="N">無</option>
                                 </select>
                             </td>
                         </tr>
@@ -210,42 +191,36 @@
                                 <select id="jyugyo" name="jyugyo">
                                     <option value="#">エランデ</option>
                                     <option value="Y">有</option>
-                                    <option vallue="N">無</option>
                                 </select>
                             </td>
                             <td>
                                 <select id="jyugyo" name="jyugyo">
                                     <option value="#">エランデ</option>
                                     <option value="Y">有</option>
-                                    <option vallue="N">無</option>
                                 </select>
                             </td>
                             <td>
                                 <select id="jyugyo" name="jyugyo">
                                     <option value="#">エランデ</option>
                                     <option value="Y">有</option>
-                                    <option vallue="N">無</option>
                                 </select>
                             </td>
                             <td>
                                 <select id="jyugyo" name="jyugyo">
                                     <option value="#">エランデ</option>
                                     <option value="Y">有</option>
-                                    <option vallue="N">無</option>
                                 </select>
                             </td>
                             <td>
                                 <select id="jyugyo" name="jyugyo">
                                     <option value="#">エランデ</option>
                                     <option value="Y">有</option>
-                                    <option vallue="N">無</option>
                                 </select>
                             </td>
                             <td>
                                 <select id="jyugyo" name="jyugyo">
                                     <option value="#">エランデ</option>
                                     <option value="Y">有</option>
-                                    <option vallue="N">無</option>
                                 </select>
                             </td>
                         </tr>
@@ -255,48 +230,45 @@
                                 <select id="jyugyo" name="jyugyo">
                                     <option value="#">エランデ</option>
                                     <option value="Y">有</option>
-                                    <option vallue="N">無</option>
                                 </select>
                             </td>
                             <td>
                                 <select id="jyugyo" name="jyugyo">
                                     <option value="#">エランデ</option>
                                     <option value="Y">有</option>
-                                    <option vallue="N">無</option>
                                 </select>
                             </td>
                             <td>
                                 <select id="jyugyo" name="jyugyo">
                                     <option value="#">エランデ</option>
                                     <option value="Y">有</option>
-                                    <option vallue="N">無</option>
                                 </select>
                             </td>
                             <td>
                                 <select id="jyugyo" name="jyugyo">
                                     <option value="#">エランデ</option>
                                     <option value="Y">有</option>
-                                    <option vallue="N">無</option>
                                 </select>
                             </td>
                             <td>
                                 <select id="jyugyo" name="jyugyo">
                                     <option value="#">エランデ</option>
                                     <option value="Y">有</option>
-                                    <option vallue="N">無</option>
                                 </select>
                             </td>
                             <td>
                                 <select id="jyugyo" name="jyugyo">
                                     <option value="#">エランデ</option>
                                     <option value="Y">有</option>
-                                    <option vallue="N">無</option>
                                 </select>
                             </td>
+                            
                             <!--<caption>時間割</caption>-->
                         </tr>
                     </table>
+                    <!--時間割りの表（終了）-->
             </div>
+            <button type="button">決定</button>
                 <div class="under">
                     <tr>
                     <!--
@@ -315,8 +287,6 @@
                     </aside>
                 </div>
         </div>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/jikanwari.js"></script>
     </body>
     <footer id="footer">
     </footer>
