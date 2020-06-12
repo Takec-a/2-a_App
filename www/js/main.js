@@ -1,29 +1,32 @@
 var app = {
     initialize: function() {
-        this.bindEvents();
-    },
-    bindEvents: function() {
-        document.addEventListener('deviceready', this.onDeviceReady, false);
+        document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
     },
     onDeviceReady: function() {
-        var button = document.getElementById("take_pictures");
-        button.addEventListener("click", takePictures);
+      var gio_start_btn = document.getElementById('geo-start');
+
+      gio_start_btn.addEventListener('click', function(){
+
+          var onSuccess = function(position) {
+            alert('Latitude: '          + position.coords.latitude          + '\n' +
+                'Longitude: '         + position.coords.longitude         + '\n' +
+                'Altitude: '          + position.coords.altitude          + '\n' +
+                'Accuracy: '          + position.coords.accuracy          + '\n' +
+                'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
+                'Heading: '           + position.coords.heading           + '\n' +
+                'Speed: '             + position.coords.speed             + '\n' +
+                'Timestamp: '         + position.timestamp                + '\n');
+          };
+          // 失敗した時の処理
+          function onError(error) {
+            alert('code: '    + error.code    + '\n' +
+              'message: ' + error.message + '\n');
+          }
+
+          var option = { timeout: 30000 };
+          // 現在の位置情報を1度だけ取得
+          navigator.geolocation.getCurrentPosition(onSuccess, onError, option);
+      },false);
     }
-};
-
-// 初期化
+}
 app.initialize();
-
-// 「撮影ボタン」が押された時の処理
-function takePictures(){
-    navigator.camera.getPicture(cameraSuccess, cameraError, { quality: 80, destinationType: Camera.DestinationType.DATA_URL });
-}
-// 撮影成功時の処理
-function cameraSuccess(image){
-    var img = document.getElementById("image");
-    img.src = "data:image/jpeg;base64," + image;
-}
-// 撮影失敗時の処理
-function cameraError(message){
-    alert("Failed!!: " + message);
-}
