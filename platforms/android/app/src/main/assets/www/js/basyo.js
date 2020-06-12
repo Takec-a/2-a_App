@@ -13,3 +13,4 @@ var app = {
 
 // 初期化
 app.initialize();
+
