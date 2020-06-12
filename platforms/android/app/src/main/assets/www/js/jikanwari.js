@@ -6,8 +6,8 @@ var app = {
         document.addEventListener('deviceready', this.onDeviceReady, false);
     },
     onDeviceReady: function() {
-        var button = document.getElementById("take_pictures");
-        button.addEventListener("click", takePictures);
+        var button = document.getElementById("click_Btn1");
+        button.addEventListener("click", clickBtn1);
     }
 };
 

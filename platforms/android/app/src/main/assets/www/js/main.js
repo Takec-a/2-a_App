@@ -23,7 +23,7 @@ var app = {
               'message: ' + error.message + '\n');
           }
 
-          var option = { timeout: 30000 };
+          var option = { enableHighAccuracy : true, timeout: 30000 };
           // 現在の位置情報を1度だけ取得
           navigator.geolocation.getCurrentPosition(onSuccess, onError, option);
       },false);
