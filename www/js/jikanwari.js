@@ -10,8 +10,19 @@ var app = {
         button.addEventListener("click", clickBtn1);
     }
 };
+//画面読み込み時に前回決定した状態で表示
+function start2(){
 
-function start(){
+//localStorageからvalue値を取得
+//2次元配列を定義
+var ary1 = [[0,0,0,0,0,0],
+             [0,0,0,0,0,0],
+             [0,0,0,0,0,0],
+             [0,0,0,0,0,0],
+             [0,0,0,0,0,0],
+             [0,0,0,0,0,0]];
+
+//localstorageからvalue値を取得
     str00=localStorage.getItem("jyugyo00");
     str01=localStorage.getItem("jyugyo01");
     str02=localStorage.getItem("jyugyo02");
@@ -49,47 +60,88 @@ function start(){
     str54=localStorage.getItem("jyugyo54");
     str55=localStorage.getItem("jyugyo55");
 
+//value値を整数型に変換して配列に格納
+    ary1[0][0] = parseInt(str00);
+    ary1[0][1] = parseInt(str01);
+    ary1[0][2] = parseInt(str02);
+    ary1[0][3] = parseInt(str03);
+    ary1[0][4] = parseInt(str04);
+    ary1[0][5] = parseInt(str05);
+    ary1[1][0] = parseInt(str10);
+    ary1[1][1] = parseInt(str11);
+    ary1[1][2] = parseInt(str12);
+    ary1[1][3] = parseInt(str13);
+    ary1[1][4] = parseInt(str14);
+    ary1[1][5] = parseInt(str15);
+    ary1[2][0] = parseInt(str20);
+    ary1[2][1] = parseInt(str21);
+    ary1[2][2] = parseInt(str22);
+    ary1[2][3] = parseInt(str23);
+    ary1[2][4] = parseInt(str24);
+    ary1[2][5] = parseInt(str25);
+    ary1[3][0] = parseInt(str30);
+    ary1[3][1] = parseInt(str31);
+    ary1[3][2] = parseInt(str32);
+    ary1[3][3] = parseInt(str33);
+    ary1[3][4] = parseInt(str34);
+    ary1[3][5] = parseInt(str35);
+    ary1[4][0] = parseInt(str40);
+    ary1[4][1] = parseInt(str41);
+    ary1[4][2] = parseInt(str42);
+    ary1[4][3] = parseInt(str43);
+    ary1[4][4] = parseInt(str44);
+    ary1[4][5] = parseInt(str45);
+    ary1[5][0] = parseInt(str50);
+    ary1[5][1] = parseInt(str51);
+    ary1[5][2] = parseInt(str52);
+    ary1[5][3] = parseInt(str53);
+    ary1[5][4] = parseInt(str54);
+    ary1[5][5] = parseInt(str55);
+
+    
+
     //i=parseInt(str00);
-    document.getElementById('jyugyo00').options[parseInt(str00)].selected=true;
-    document.getElementById('jyugyo01').options[parseInt(str01)].selected=true;
-    document.getElementById('jyugyo02').options[parseInt(str02)].selected=true;
-    document.getElementById('jyugyo03').options[parseInt(str03)].selected=true;
-    document.getElementById('jyugyo04').options[parseInt(str04)].selected=true;
-    document.getElementById('jyugyo05').options[parseInt(str05)].selected=true;
-    document.getElementById('jyugyo10').options[parseInt(str10)].selected=true;
-    document.getElementById('jyugyo11').options[parseInt(str11)].selected=true;
-    document.getElementById('jyugyo12').options[parseInt(str12)].selected=true;
-    document.getElementById('jyugyo13').options[parseInt(str13)].selected=true;
-    document.getElementById('jyugyo14').options[parseInt(str14)].selected=true;
-    document.getElementById('jyugyo15').options[parseInt(str15)].selected=true;
-    document.getElementById('jyugyo20').options[parseInt(str20)].selected=true;
-    document.getElementById('jyugyo21').options[parseInt(str21)].selected=true;
-    document.getElementById('jyugyo22').options[parseInt(str22)].selected=true;
-    document.getElementById('jyugyo23').options[parseInt(str23)].selected=true;
-    document.getElementById('jyugyo24').options[parseInt(str24)].selected=true;
-    document.getElementById('jyugyo25').options[parseInt(str25)].selected=true;
-    document.getElementById('jyugyo30').options[parseInt(str30)].selected=true;
-    document.getElementById('jyugyo31').options[parseInt(str31)].selected=true;
-    document.getElementById('jyugyo32').options[parseInt(str32)].selected=true;
-    document.getElementById('jyugyo33').options[parseInt(str33)].selected=true;
-    document.getElementById('jyugyo34').options[parseInt(str34)].selected=true;
-    document.getElementById('jyugyo35').options[parseInt(str35)].selected=true;
-    document.getElementById('jyugyo40').options[parseInt(str40)].selected=true;
-    document.getElementById('jyugyo41').options[parseInt(str41)].selected=true;
-    document.getElementById('jyugyo42').options[parseInt(str42)].selected=true;
-    document.getElementById('jyugyo43').options[parseInt(str43)].selected=true;
-    document.getElementById('jyugyo44').options[parseInt(str44)].selected=true;
-    document.getElementById('jyugyo45').options[parseInt(str45)].selected=true;
-    document.getElementById('jyugyo50').options[parseInt(str50)].selected=true;
-    document.getElementById('jyugyo51').options[parseInt(str51)].selected=true;
-    document.getElementById('jyugyo52').options[parseInt(str52)].selected=true;
-    document.getElementById('jyugyo53').options[parseInt(str53)].selected=true;
-    document.getElementById('jyugyo54').options[parseInt(str54)].selected=true;
-    document.getElementById('jyugyo55').options[parseInt(str55)].selected=true;
+    document.getElementById('jyugyo00').options[ary1[0][0]].selected=true;
+    document.getElementById('jyugyo01').options[ary1[0][1]].selected=true;
+    document.getElementById('jyugyo02').options[ary1[0][2]].selected=true;
+    document.getElementById('jyugyo03').options[ary1[0][3]].selected=true;
+    document.getElementById('jyugyo04').options[ary1[0][4]].selected=true;
+    document.getElementById('jyugyo05').options[ary1[0][5]].selected=true;
+    document.getElementById('jyugyo10').options[ary1[1][0]].selected=true;
+    document.getElementById('jyugyo11').options[ary1[1][1]].selected=true;
+    document.getElementById('jyugyo12').options[ary1[1][2]].selected=true;
+    document.getElementById('jyugyo13').options[ary1[1][3]].selected=true;
+    document.getElementById('jyugyo14').options[ary1[1][4]].selected=true;
+    document.getElementById('jyugyo15').options[ary1[1][5]].selected=true;
+    document.getElementById('jyugyo20').options[ary1[2][0]].selected=true;
+    document.getElementById('jyugyo21').options[ary1[2][1]].selected=true;
+    document.getElementById('jyugyo22').options[ary1[2][2]].selected=true;
+    document.getElementById('jyugyo23').options[ary1[2][3]].selected=true;
+    document.getElementById('jyugyo24').options[ary1[2][4]].selected=true;
+    document.getElementById('jyugyo25').options[ary1[2][5]].selected=true;
+    document.getElementById('jyugyo30').options[ary1[3][0]].selected=true;
+    document.getElementById('jyugyo31').options[ary1[3][1]].selected=true;
+    document.getElementById('jyugyo32').options[ary1[3][2]].selected=true;
+    document.getElementById('jyugyo33').options[ary1[3][3]].selected=true;
+    document.getElementById('jyugyo34').options[ary1[3][4]].selected=true;
+    document.getElementById('jyugyo35').options[ary1[3][5]].selected=true;
+    document.getElementById('jyugyo40').options[ary1[4][0]].selected=true;
+    document.getElementById('jyugyo41').options[ary1[4][1]].selected=true;
+    document.getElementById('jyugyo42').options[ary1[4][2]].selected=true;
+    document.getElementById('jyugyo43').options[ary1[4][3]].selected=true;
+    document.getElementById('jyugyo44').options[ary1[4][4]].selected=true;
+    document.getElementById('jyugyo45').options[ary1[4][5]].selected=true;
+    document.getElementById('jyugyo50').options[ary1[5][0]].selected=true;
+    document.getElementById('jyugyo51').options[ary1[5][1]].selected=true;
+    document.getElementById('jyugyo52').options[ary1[5][2]].selected=true;
+    document.getElementById('jyugyo53').options[ary1[5][3]].selected=true;
+    document.getElementById('jyugyo54').options[ary1[5][4]].selected=true;
+    document.getElementById('jyugyo55').options[ary1[5][5]].selected=true;
      
 }
 
 function clickBtn1(){
+//いろいろあってlocalstorageの値を更新
 
     localStorage.removeItem("jyugyo00");
     localStorage.removeItem("jyugyo01");
@@ -242,7 +294,7 @@ function clickBtn1(){
     localStorage.setItem("jyugyo53",jyugyo00.options[num53].value);
     localStorage.setItem("jyugyo54",jyugyo00.options[num54].value);
     localStorage.setItem("jyugyo55",jyugyo00.options[num55].value);
-    
+
     
 }
 

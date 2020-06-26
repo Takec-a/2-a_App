@@ -9,7 +9,7 @@
     <script type="text/javascript" src="js/basyo.js"></script>
     <title>遅刻防止アプリ</title>
 </head>
-    <body>
+    <body onload="start3()">
         <div class="app">
             <h1>Camera</h1>
             <div>
@@ -27,12 +27,15 @@
                     -->
                     </tr>
                     <br>
+                    <form name="form2">
                     <p>ガッコウ、ドコ？</p>
                     <select id="gakko" name="gakko">
-                        <option value="#">エランデ</option>
-                        <option value="船橋">船橋キャンパス</option>
-                        <option vallue="駿河台">駿河台キャンパス</option>
+                        <option value="0">エランデ</option>
+                        <option value="1">船橋キャンパス</option>
+                        <option value="2">駿河台キャンパス</option>
                     </select>
+                    <input type="button" value="決定" onclick="clickBtn2()"/>
+                    </form>
                 </div>
                 <div>
                     <aside>
