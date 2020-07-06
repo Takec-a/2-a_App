@@ -36,23 +36,6 @@ var getSuccess = function(pos) {
 var geoError = function() {
     alert('Getting location failed.');//
 };
-
-var app = {
-    initialize: function() {
-        document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
-    },
-    onDeviceReady: function() {
-      setTimeout(function(){
-        navigator.geolocation.getCurrentPosition(getSuccess, geoError, { enableHighAccuracy: true });
-      }, 10000);
-    /*setTimeout(function(){window.location.href = 'http://192.168.0.101:3000'}, 10000);
-      var tweet_btn = document.getElementById('tweet-start');*/
-
-
-
-    }
-}
-
 function start1(){
 
 var now = new Date();
@@ -163,23 +146,23 @@ var ary1 = [[0,0,0,0,0,0],
     ary1[5][5] = parseInt(str55);
 
   //曜日を指定
-  var j = youbi-1;
+  var j = youbi;
   //最初の授業は何限か
   var hajime = -1 ;
-  while(hajime==-1){
-    for(var i=0;i<6;i++){
-      if(ary1[i][j]==1){
-        hajime = i+1;
-
-        break;
+    for(var l=j;l<l+6;l+1%7){
+      for(var i=0;i<6;i++){
+        if(ary1[i][l]==1){
+          hajime = i+1;
+          var kaishiyoubi = l;
+          break;
+        }
      }
      if(ary1[5][5] == 0){
-       hajime = "なし";
+       hajime = 1;
 
        break;
      }
     }
-  }
   document.getElementById('hajime').textContent = hajime;
 
   //最初の授業開始時刻を求める
@@ -195,10 +178,13 @@ var ary1 = [[0,0,0,0,0,0],
 
   document.getElementById('kaishiji').textContent = kaishiji;
   document.getElementById('kaishihun').textContent = kaishihun;
+  document.getElementById('kaishiyoubi').textContent = kaishiyoubi;
   localStorage.removeItem("kaishiji");
   localStorage.removeItem("kaishihun");
+  localStorage.removeItem("kaishiyoubi");
   localStorage.setItem("kaishiji",kaishiji);
   localStorage.setItem("kaishihun",kaishihun);
+  localStorage.setItem("kaishiyoubi",kaishiyoubi);
 
 /*
 
@@ -237,8 +223,8 @@ var ary1 = [[0,0,0,0,0,0],
      */
 }
 
-function gettime(){
-
+var search_time =function gettime(){
+  start1();
   var now = new Date();
   var years = now.getFullYear();
   var monthes = now.getMonth()+1;
@@ -334,124 +320,74 @@ function gettime(){
 
   str0=localStorage.getItem("kaishiji");
   str1=localStorage.getItem("kaishihun");
+  str2=localStorage.getItem("kaishiyoubi");
 
   var k1 = parseInt(str0);
   var k2 = parseInt(str1);
+  var k3 = parseInt(str2);
 
   var t1 = k1-hours;
   var t2 = k2-mins;
+  var t3 = k3-youbi;
+  if(t3<0){
+    t3=7-(-1*t3);
+  }
   //現在時刻が授業開始前
   if(t1>0){
     //返す値はその日の授業開始時刻と現在時刻の差分
     var data1 = (years,monthes,today,hours,mins,secs);
-    var data2 = (years,monthes,today,k1,k2,0);
-    var termDay = data2-data1;
+    var data2 = (years,monthes,today+t3,k1,k2,0);
+    return data2-data1;
   }
   //現在時刻が時間は授業開始時間と同じ
   if(t1==0){
-    //授業開始前60分以内
-    if(t2>0){
-      //返す値はその日の授業開始時刻と現在時刻の差分
-      var data1 = (years,monthes,today,hours,mins,secs);
-      var data2 = (years,monthes,today,k1,k2,0);
-      var termDay = data2-data1;
-    }
-    //授業開始時刻を過ぎている
-    if(t2<0){
-      //返す値は次の日以降で最初の授業開始時刻と現在時刻の差分
-      var jikai = -1
-      //今日の曜日はyoubi-1で表されるため次の曜日は(youbi-1)+1=youbi
-      var j=youbi;
-      //次の授業がいつか調べる
-      /*while(jikai==-1){
-        if(j==6){
-          j=0;
-        }
-        for(var i=0;i<6;i++){
-          if(ary1[i][j]==1){
-            jikai = i+1;
-           break;
-         }
-        }
-        if(i==6){
-          j++;
-        }
-      }*/
-      var kaishiji = -1;
-      var kaishihun = -1;
-
-      if(jikai==1){kaishiji=9;kaishihun=0;}
-      if(jikai==2){kaishiji=10;kaishihun=40;}
-      if(jikai==3){kaishiji=13;kaishihun=20;}
-      if(jikai==4){kaishiji=15;kaishihun=0;}
-      if(jikai==5){kaishiji=16;kaishihun=40;}
-      if(jikai==6){kaishiji=18;kaishihun=20;}
-
-      //現在時刻と次の授業開始の差分
-      var youbisabun = (j-1)-(youbi-1);
-      if(youbisabun<0){
-        youbisabun=youbisabun+7;
-      }
-      var nextdata = new Date();
-      Date.setDate(date.getDate()+youbisabun);
-      var nextyear = data.getFullYear;
-      var nextMonth = data.getMonth;
-      var nextday = date.getDate;
-
-      var data1 = (years,monthes,today,hours,mins,secs);
-      var data2 = (nextyears,nextmonthes,nextday,kaishiji,kaishihun,0);
-      var termDay = data2-data1;
-    }
+    var data1 = (years,monthes,today,hours,mins,secs);
+    return date1;
   }
   //現在時刻が授業開始時刻を過ぎている
   if(t1<0){
-    //返す値は次の日以降で最初の授業開始時刻と現在時刻の差分
-    var jikai = -1
-    //今日の曜日はyoubi-1で表されるため次の曜日は(youbi-1)+1=youbi
-    var j=youbi;
-    //次の授業開始がいつか調べる
-    while(jikai==-1){
-      if(j==6){
-        j=0;
-      }
-      for(var i=0;i<6;i++){
-        if(ary1[i][j]==1){
-          jikai = i+1;
+    var j = youbi+1%7;
+    //最初の授業は何限か
+    var hajime = -1 ;
+      for(var l=j;l<l+6;l+1%7){
+        for(var i=0;i<6;i++){
+          if(ary1[i][l]==1){
+            hajime = i+1;
+            var kaishiyoubi = l;
+            break;
+          }
+       }
+       if(ary1[5][5] == 0){
+         hajime = 1;
          break;
        }
       }
-      if(i==6){
-        j++;
-      }
-    }
-    var kaishiji = -1;
-    var kaishihun = -1;
-
-    if(jikai==1){kaishiji=9;kaishihun=0;}
-    if(jikai==2){kaishiji=10;kaishihun=40;}
-    if(jikai==3){kaishiji=13;kaishihun=20;}
-    if(jikai==4){kaishiji=15;kaishihun=0;}
-    if(jikai==5){kaishiji=16;kaishihun=40;}
-    if(jikai==6){kaishiji=18;kaishihun=20;}
-
-    //現在時刻から次の授業開始時刻の差分
-    var youbisabun = (j-1)-(youbi-1);
-    if(youbisabun<0){
-      youbisabun=youbisabun+7;
-    }
-    var nextdata = new Date();
-    Date.setDate(date.getDate()+youbisabun);
-    var nextyear = data.getFullYear;
-    var nextMonth = data.getMonth;
-    var nextday = date.getDate;
-
-    var data1 = (years,monthes,today,hours,mins,secs);
-    var data2 = (nextyears,nextmonthes,nextday,kaishiji,kaishihun,0);
-    var termDay = data2-data1;
+      if(hajime==1){kaishiji=9;kaishihun=0;}
+      if(hajime==2){kaishiji=10;kaishihun=40;}
+      if(hajime==3){kaishiji=13;kaishihun=20;}
+      if(hajime==4){kaishiji=15;kaishihun=0;}
+      if(hajime==5){kaishiji=16;kaishihun=40;}
+      if(hajime==6){kaishiji=18;kaishihun=20;}
+      var data1 = (years,monthes,today,hours,mins,secs);
+      var data2 = (years,monthes,today+t3-1,k1,k2,0);
+      var termDay = data2-data1;
+      return termday;
   }
-  alert(termDay+"ミリ秒");
-
   //いったい何をreturnすればええんや
 }
+var app = {
+    initialize: function() {
+        document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
+    },
+    onDeviceReady: function() {
+      setTimeout(function(){
+        navigator.geolocation.getCurrentPosition(getSuccess, geoError, { enableHighAccuracy: true });
+      }, search_time);
+    /*setTimeout(function(){window.location.href = 'http://192.168.0.101:3000'}, 10000);
+      var tweet_btn = document.getElementById('tweet-start');*/
 
+
+
+    }
+}
 app.initialize();
