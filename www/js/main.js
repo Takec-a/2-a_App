@@ -149,18 +149,18 @@ var ary1 = [[0,0,0,0,0,0],
   var j = youbi;
   //最初の授業は何限か
   var hajime = -1 ;
-    for(var l=j;l<l+6;l+1%7){
+    for(var l=j;l<(l+6)%7;l=(l+1)%7){
       for(var i=0;i<6;i++){
         if(ary1[i][l]==1){
           hajime = i+1;
           var kaishiyoubi = l;
           break;
         }
-     }
-     if(ary1[5][5] == 0){
-       hajime = 1;
-
-       break;
+        if(ary1[5][5] == 0){
+          hajime = 1;
+          var kaishiyoubi = l;
+          break;
+        }
      }
     }
   document.getElementById('hajime').textContent = hajime;
@@ -349,17 +349,18 @@ var search_time =function gettime(){
     var j = youbi+1%7;
     //最初の授業は何限か
     var hajime = -1 ;
-      for(var l=j;l<l+6;l+1%7){
+      for(var l=j;l<(l+6)%7;l=(l+1)%7){
         for(var i=0;i<6;i++){
           if(ary1[i][l]==1){
             hajime = i+1;
             var kaishiyoubi = l;
             break;
           }
-       }
-       if(ary1[5][5] == 0){
-         hajime = 1;
-         break;
+          if(ary1[5][5] == 0){
+            hajime = 1;
+            var kaishiyoubi = l;
+            break;
+          }
        }
       }
       if(hajime==1){kaishiji=9;kaishihun=0;}
@@ -385,9 +386,6 @@ var app = {
       }, search_time);
     /*setTimeout(function(){window.location.href = 'http://192.168.0.101:3000'}, 10000);
       var tweet_btn = document.getElementById('tweet-start');*/
-
-
-
     }
 }
 app.initialize();
