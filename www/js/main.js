@@ -75,7 +75,7 @@ var weekday = ["日","月","火","水","木","金","土"];
  document.getElementById('hours').textContent = hours;
  document.getElementById('mins').textContent = mins;
  document.getElementById('secs').textContent = secs;
- 
+
 
 
 //時間割の内容からニ次元配列を作成
@@ -170,8 +170,13 @@ var ary1 = [[0,0,0,0,0,0],
     for(var i=0;i<6;i++){
       if(ary1[i][j]==1){
         hajime = i+1;
-      
+
         break;
+     }
+     if(ary1[5][5] == 0){
+       hajime = "なし";
+
+       break;
      }
     }
   }
@@ -196,7 +201,7 @@ var ary1 = [[0,0,0,0,0,0],
   localStorage.setItem("kaishihun",kaishihun);
 
 /*
-  
+
   if(t1<0){
     var jikai = -1;
     j=j+1;
@@ -204,7 +209,7 @@ var ary1 = [[0,0,0,0,0,0],
       for(var i=0;i<6;i++){
         if(ary1[i][j]==1){
           jikai = i+1;
-   
+
          break;
        }
       }
@@ -218,7 +223,7 @@ var ary1 = [[0,0,0,0,0,0],
     //最初の授業開始時刻を求める
     var kaishiji = -1;
     var kaishihun = -1;
-   
+
     if(jikai==1){kaishiji=9;kaishihun=0;}
     if(jikai==2){kaishiji=10;kaishihun=40;}
     if(jikai==3){kaishiji=13;kaishihun=20;}
@@ -329,7 +334,7 @@ function gettime(){
 
   str0=localStorage.getItem("kaishiji");
   str1=localStorage.getItem("kaishihun");
-  
+
   var k1 = parseInt(str0);
   var k2 = parseInt(str1);
 
@@ -358,7 +363,7 @@ function gettime(){
       //今日の曜日はyoubi-1で表されるため次の曜日は(youbi-1)+1=youbi
       var j=youbi;
       //次の授業がいつか調べる
-      while(jikai==-1){
+      /*while(jikai==-1){
         if(j==6){
           j=0;
         }
@@ -371,10 +376,10 @@ function gettime(){
         if(i==6){
           j++;
         }
-      }
+      }*/
       var kaishiji = -1;
       var kaishihun = -1;
-   
+
       if(jikai==1){kaishiji=9;kaishihun=0;}
       if(jikai==2){kaishiji=10;kaishihun=40;}
       if(jikai==3){kaishiji=13;kaishihun=20;}
@@ -421,7 +426,7 @@ function gettime(){
     }
     var kaishiji = -1;
     var kaishihun = -1;
- 
+
     if(jikai==1){kaishiji=9;kaishihun=0;}
     if(jikai==2){kaishiji=10;kaishihun=40;}
     if(jikai==3){kaishiji=13;kaishihun=20;}
