@@ -224,7 +224,7 @@ var ary1 = [[0,0,0,0,0,0],
      */
 }
 
-function gettime(){
+function searchtime(){
   start1();
   var now = new Date();
   var years = now.getFullYear();
@@ -338,7 +338,8 @@ function gettime(){
     //返す値はその日の授業開始時刻と現在時刻の差分
     var data1 = (years,monthes,today,hours,mins,secs);
     var data2 = (years,monthes,today+t3,k1,k2,0);
-    var diff = (data1.getTime() - data2.getTime());
+    var diff = data1-data2;
+    document.getElementById('settime').textContent = diff;
     return diff;
   }
   //現在時刻が時間は授業開始時間と同じ
@@ -380,9 +381,10 @@ function gettime(){
       if(hajime==6){kaishiji=18;kaishihun=20;}
       var data1 = (years,monthes,today,hours,mins,secs);
       var data2 = (years,monthes,today+t3,kaishiji,kaishihun,0);
-      var diff = (data1.getTime() - data2.getTime());
+      var diff = data1-data2;
       return diff;
   }
+  return 10;
   //いったい何をreturnすればええんや
 }
 var app = {
@@ -390,11 +392,9 @@ var app = {
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
     },
     onDeviceReady: function() {
-    //  setTimeout(function(){
-  //      navigator.geolocation.getCurrentPosition(getSuccess, geoError, { enableHighAccuracy: true });
-  //    }, gettime());
-      document.getElementById('tieee').textContent = gettime();
-
+      //setTimeout(function(){
+       //navigator.geolocation.getCurrentPosition(getSuccess, geoError, { enableHighAccuracy: true });
+     //}, searchtime());
     /*setTimeout(function(){window.location.href = 'http://192.168.0.101:3000'}, 10000);
       var tweet_btn = document.getElementById('tweet-start');*/
     }
