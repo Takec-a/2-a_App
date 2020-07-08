@@ -147,19 +147,20 @@ var ary1 = [[0,0,0,0,0,0],
 
   //曜日を指定
   var j = youbi;
+  var flag=0;
   //最初の授業は何限か
   var hajime = -1 ;
-    for(var l=j;l<l+6;l+1%7){
+    for(var l=0;l<6;l++){
       for(var i=0;i<6;i++){
-        if(ary1[i][l]==1){
+        if(ary1[i][j]==1){
           hajime = i+1;
-          var kaishiyoubi = l;
+          var kaishiyoubi = j;
+          flag=1;
           break;
         }
      }
-     if(ary1[5][5] == 0){
-       hajime = 1;
-
+     j=(j+1)%7;
+     if(flag==1){
        break;
      }
     }
@@ -223,7 +224,7 @@ var ary1 = [[0,0,0,0,0,0],
      */
 }
 
-var search_time =function gettime(){
+function gettime(){
   start1();
   var now = new Date();
   var years = now.getFullYear();
@@ -337,30 +338,39 @@ var search_time =function gettime(){
     //返す値はその日の授業開始時刻と現在時刻の差分
     var data1 = (years,monthes,today,hours,mins,secs);
     var data2 = (years,monthes,today+t3,k1,k2,0);
-    return data2-data1;
+    var diff = (data1.getTime() - data2.getTime());
+    return diff;
   }
   //現在時刻が時間は授業開始時間と同じ
   if(t1==0){
-    var data1 = (years,monthes,today,hours,mins,secs);
-    return date1;
+    var data1 = (years,monthes,today,hours,mins,secs+5);
+    var diff = (data1.getTime() - data1.getTime() + 10000);
+    return diff;
   }
   //現在時刻が授業開始時刻を過ぎている
   if(t1<0){
-    var j = youbi+1%7;
+    //最初の授業は何限か
+    var j = (youbi+1)%7;
+    var flag=0;
     //最初の授業は何限か
     var hajime = -1 ;
-      for(var l=j;l<l+6;l+1%7){
+      for(var l=0;l<6;l++){
         for(var i=0;i<6;i++){
-          if(ary1[i][l]==1){
+          if(ary1[i][j]==1){
             hajime = i+1;
-            var kaishiyoubi = l;
+            var kaishiyoubi = j;
+            flag=1;
             break;
           }
        }
-       if(ary1[5][5] == 0){
-         hajime = 1;
+       j=(j+1)%7;
+       if(flag==1){
          break;
        }
+      }
+      t3=kaishiyoubi-youbi;
+      if(t3<0){
+        t3=7-(-1*t3);
       }
       if(hajime==1){kaishiji=9;kaishihun=0;}
       if(hajime==2){kaishiji=10;kaishihun=40;}
@@ -369,9 +379,9 @@ var search_time =function gettime(){
       if(hajime==5){kaishiji=16;kaishihun=40;}
       if(hajime==6){kaishiji=18;kaishihun=20;}
       var data1 = (years,monthes,today,hours,mins,secs);
-      var data2 = (years,monthes,today+t3-1,k1,k2,0);
-      var termDay = data2-data1;
-      return termday;
+      var data2 = (years,monthes,today+t3,kaishiji,kaishihun,0);
+      var diff = (data1.getTime() - data2.getTime());
+      return diff;
   }
   //いったい何をreturnすればええんや
 }
@@ -380,14 +390,13 @@ var app = {
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
     },
     onDeviceReady: function() {
-      setTimeout(function(){
-        navigator.geolocation.getCurrentPosition(getSuccess, geoError, { enableHighAccuracy: true });
-      }, search_time);
+    //  setTimeout(function(){
+  //      navigator.geolocation.getCurrentPosition(getSuccess, geoError, { enableHighAccuracy: true });
+  //    }, gettime());
+      document.getElementById('tieee').textContent = gettime();
+
     /*setTimeout(function(){window.location.href = 'http://192.168.0.101:3000'}, 10000);
       var tweet_btn = document.getElementById('tweet-start');*/
-
-
-
     }
 }
 app.initialize();
