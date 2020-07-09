@@ -11,19 +11,18 @@
 </head>
     <body>
         <div class="app">
-            <h1>Camera</h1>
-            <table>
-                <tr><td id="years"></td><th>年</th></tr>
-                <tr><td id="monthes"></td><th>月</th><td id="today"></td><th>日</th></tr>
-                <tr><td id="youbi"></td><th>曜日</th></tr>
-                <tr><td id="hours"></td><th>時</th><td id="mins"></td><th>分</th><td id="secs"></td><th>秒</th></tr>
-            </table>
-            <table>
-                <tr><th>最初の授業は</th><td id="hajime"></td><th>限</th></tr>
-                <tr><th>開始時刻は</th><td id="kaishiji"></td><th>時</th><td id="kaishihun"></td><th>分</th></tr>
-                <tr><th>授業までの時間</th><td id="settime"></td><th>時間</th></tr>
-                <!--<tr><th>次回アラート時間は</th><td id="tsuginohi"></td><th>曜日</th><td id="t1"></td><th>時</th><td id="t2"></td><th>分</th></tr>-->
-            </table>
+            <h1>遅刻防止アプリ</h1>
+            <div class="date_set">
+              <p1 id="years"></p1>年
+              <p1 id="monthes"></p1>月<p1 id="today"></p1>日
+              <p1 id="youbi"></p1>曜日<br>
+              <p1 id="hours"></p1>時<p1 id="mins"></p1>分<p1 id="secs"></p1>秒<br>
+            </div>
+            <div class="jikanwari_set">
+              最初の授業は<p1 id="hajime"></p1>限<br>
+              開始時刻は<p1 id="kaishiji"></p1>時<p1 id="kaishihun"></p1>分<br>
+              授業までの時間<p1 id="settime"></p1>時間
+            </div>
             <div>
                 <a href="http://192.168.0.101:3000">アンカーテキスト</a>
                 <div>
@@ -39,7 +38,7 @@
                     -->
                     </tr>
                     <br>
-                    <p>チコク、ダメ、ゼッタイ</p>
+                    <p2>チコク、ダメ、ゼッタイ</p2>
                     <button onclick="window.plugins.socialsharing.share('Test Message')">MSG Share</button>
                 </div>
                 <div>

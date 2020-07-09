@@ -38,12 +38,12 @@
      -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
      -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
      background-color:#E4E4E4;
-     background-image:url(../img/school_room2_yuyake.jpg);
-     /*background-size:contain ;*/
-     background-size:cover ;
+     /*background-image:url(../img/school_room2_yuyake.jpg);
+     background-size:contain ;
+     background-size:cover ;*/
      font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
      font-size:12px;
-     height:100vh;
+     height:100px;
      margin:0px;
      padding:0px;
      /* Padding to avoid the "unsafe" areas behind notches in the screen */
@@ -51,7 +51,7 @@
      text-transform:uppercase;
      width:100%;
  }
- 
+
  /* Portrait layout (default) */
  .app {
      /*background:url(../img/logo.png) no-repeat center top;*/ /* 170px x 200px */
@@ -60,12 +60,12 @@
      top:50%;
      height:50px;                   /* text area height */
      width:225px;                   /* text area width */
-     text-align:center;
+     text-align: center;
      padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
-     margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
+     margin:0 auto;  /* offset vertical: half of image height and text area height */
                                     /* offset horizontal: half of text area width */
  }
- 
+
  /* Landscape layout (with min-width) */
  @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
      .app {
@@ -75,17 +75,17 @@
                                        /* offset horizontal: half of image width and text area width */
      }
  }
- 
+
  h1 {
      font-size:24px;
-     font-weight:normal;
+     font-weight:bold;
      margin:0px;
-     overflow:visible;
+     overflow:auto;
      padding:0px;
      text-align:center;
-     color:#FFFFFF;
+     /*color:#FFFFFF;*/
  }
- 
+
  .event {
      border-radius:4px;
      -webkit-border-radius:4px;
@@ -94,49 +94,49 @@
      margin:0px 30px;
      padding:2px 0px;
  }
- 
+
  .event.listening {
      background-color:#333333;
      display:block;
  }
- 
+
  .event.received {
      background-color:#4B946A;
      display:none;
  }
- 
+
  @keyframes fade {
      from { opacity: 1.0; }
      50% { opacity: 0.4; }
      to { opacity: 1.0; }
  }
- 
+
  @-webkit-keyframes fade {
      from { opacity: 1.0; }
      50% { opacity: 0.4; }
      to { opacity: 1.0; }
  }
- 
+
  .blink {
      animation:fade 3000ms infinite;
      -webkit-animation:fade 3000ms infinite;
  }
- 
+
  table{
     width: 100%;
     border-collapse:separate;
     border-spacing: 0;
   }
-  
+
   table th:first-child{
     border-radius: 5px 0 0 0;
   }
-  
+
   table th:last-child{
     border-radius: 0 5px 0 0;
     border-right: 1px solid #3c6690;
   }
-  
+
   table th{
     text-align: center;
     color:white;
@@ -148,7 +148,7 @@
     width: 25%;
     padding: 10px 0;
   }
-  
+
   table td{
     text-align: center;
     background: linear-gradient(#829ebc,#225588);
@@ -159,15 +159,19 @@
     width: 25%;
     padding: 10px 0;
   }
-  
+
   table td:last-child{
     border-right: 1px solid #a8b7c5;
   }
-  
+
   table tr:last-child td:first-child {
     border-radius: 0 0 0 5px;
   }
-  
+
   table tr:last-child td:last-child {
     border-radius: 0 0 5px 0;
   }
+.sub_set {
+  margin:0 auto;
+  background-color:white;
+}

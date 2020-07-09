@@ -25,7 +25,10 @@
  .under {
    top: 500px; /* 下に 10px 下げる */
  }
- p {
+ p1 {
+   font-weight: bold;
+ }
+ p2 {
    font-size:24px;
    font-weight:normal;
    margin:0px;
@@ -38,9 +41,10 @@ body {
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
     background-color:#E4E4E4;
-    background-image:url(../img/kakedasu_school.jpg);
-    background-repeat:repeat-x ;
-    /*background-size:cover ;*/
+  /*  background-image:url(../img/kakedasu_school.jpg);
+    background-repeat:no-repeat;
+    background-size:cover ;
+    background-position-y: bottom;*/
     font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
     font-size:12px;
     height:100vh;
@@ -77,8 +81,9 @@ body {
 }
 
 h1 {
-    font-size:24px;
-    font-weight:normal;
+    font-size:32px;
+    font-weight:bold;
+    font-family:"Meiryo";
     margin:0px;
     overflow:visible;
     padding:0px;
@@ -119,4 +124,17 @@ h1 {
 .blink {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
+}
+
+.date_set {
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+  padding: 20px 0;
+}
+.jikanwari_set {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  color: #800000;
 }
