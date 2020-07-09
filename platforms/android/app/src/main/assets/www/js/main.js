@@ -146,7 +146,7 @@ var ary1 = [[0,0,0,0,0,0],
     ary1[5][5] = parseInt(str55);
 
   //曜日を指定
-  var j = youbi;
+  var j = youbi-1;
   var flag=0;
   //最初の授業は何限か
   var hajime = -1 ;
@@ -155,6 +155,8 @@ var ary1 = [[0,0,0,0,0,0],
         if(ary1[i][j]==1){
           hajime = i+1;
           var kaishiyoubi = j;
+          localStorage.removeItem("kaishiyoubi");
+          localStorage.setItem("kaishiyoubi",kaishiyoubi);
           flag=1;
           break;
         }
@@ -179,13 +181,42 @@ var ary1 = [[0,0,0,0,0,0],
 
   document.getElementById('kaishiji').textContent = kaishiji;
   document.getElementById('kaishihun').textContent = kaishihun;
-  document.getElementById('kaishiyoubi').textContent = kaishiyoubi;
+  //document.getElementById('kaishiyoubi').textContent = kaishiyoubi;
   localStorage.removeItem("kaishiji");
   localStorage.removeItem("kaishihun");
-  localStorage.removeItem("kaishiyoubi");
+  //localStorage.removeItem("kaishiyoubi");
   localStorage.setItem("kaishiji",kaishiji);
   localStorage.setItem("kaishihun",kaishihun);
-  localStorage.setItem("kaishiyoubi",kaishiyoubi);
+  //localStorage.setItem("kaishiyoubi",kaishiyoubi);
+
+
+  //差分ミリ秒参考
+  /*
+  str0=localStorage.getItem("kaishiji");
+  str1=localStorage.getItem("kaishihun");
+  str2=localStorage.getItem("kaishiyoubi");
+
+  var k1 = parseInt(str0);
+  var k2 = parseInt(str1);
+  var k3 = parseInt(str2);
+
+  var t1 = k1-hours;
+  var t2 = k2-mins;
+  var t3 = k3-(youbi-1);
+  if(t3<0){
+    t3=7-(-1*t3);
+  }
+  //現在時刻が授業開始前
+
+    //返す値はその日の授業開始時刻と現在時刻の差分
+    var data1 = new Date(years,monthes,today,hours,mins,secs);
+    var data2 = new Date(years,monthes,today+t3,k1,k2,0);
+    var diff = data2-data1;
+    document.getElementById('settime').textContent = diff;
+  */
+
+
+
 
 /*
 
@@ -329,23 +360,24 @@ function searchtime(){
 
   var t1 = k1-hours;
   var t2 = k2-mins;
-  var t3 = k3-youbi;
+  var t3 = k3-(youbi-1);
   if(t3<0){
     t3=7-(-1*t3);
   }
   //現在時刻が授業開始前
   if(t1>0){
     //返す値はその日の授業開始時刻と現在時刻の差分
-    var data1 = (years,monthes,today,hours,mins,secs);
-    var data2 = (years,monthes,today+t3,k1,k2,0);
-    var diff = data1-data2;
-    document.getElementById('settime').textContent = diff;
+    var data1 = new Date(years,monthes,today,hours,mins,secs);
+    var data2 = new Date(years,monthes,today+t3,k1,k2,0);
+    var diff = data2-data1;
+    document.getElementById('settime').textContent = (diff/(3600*1000)).toFixed(0);
     return diff;
   }
   //現在時刻が時間は授業開始時間と同じ
   if(t1==0){
-    var data1 = (years,monthes,today,hours,mins,secs+5);
+    var data1 = new Date(years,monthes,today,hours,mins,secs+5);
     var diff = (data1.getTime() - data1.getTime() + 10000);
+    document.getElementById('settime').textContent = (diff/(3600*1000)).toFixed(0);
     return diff;
   }
   //現在時刻が授業開始時刻を過ぎている
@@ -369,7 +401,7 @@ function searchtime(){
          break;
        }
       }
-      t3=kaishiyoubi-youbi;
+      t3=kaishiyoubi-(youbi-1);
       if(t3<0){
         t3=7-(-1*t3);
       }
@@ -379,24 +411,28 @@ function searchtime(){
       if(hajime==4){kaishiji=15;kaishihun=0;}
       if(hajime==5){kaishiji=16;kaishihun=40;}
       if(hajime==6){kaishiji=18;kaishihun=20;}
-      var data1 = (years,monthes,today,hours,mins,secs);
-      var data2 = (years,monthes,today+t3,kaishiji,kaishihun,0);
-      var diff = data1-data2;
+      var data1 = new Date(years,monthes,today,hours,mins,secs);
+      var data2 = new Date(years,monthes,today+t3,kaishiji,kaishihun,0);
+      var diff = data2-data1;
+      document.getElementById('settime').textContent = (diff/(3600*1000)).toFixed(0);
       return diff;
   }
   return 10;
   //いったい何をreturnすればええんや
 }
+
 var app = {
     initialize: function() {
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
     },
     onDeviceReady: function() {
-      //setTimeout(function(){
-       //navigator.geolocation.getCurrentPosition(getSuccess, geoError, { enableHighAccuracy: true });
-     //}, searchtime());
+      setTimeout(function(){
+       navigator.geolocation.getCurrentPosition(getSuccess, geoError, { enableHighAccuracy: true });
+     }, searchtime());
     /*setTimeout(function(){window.location.href = 'http://192.168.0.101:3000'}, 10000);
       var tweet_btn = document.getElementById('tweet-start');*/
     }
 }
+
+
 app.initialize();

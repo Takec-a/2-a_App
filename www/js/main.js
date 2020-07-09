@@ -207,14 +207,14 @@ var ary1 = [[0,0,0,0,0,0],
     t3=7-(-1*t3);
   }
   //現在時刻が授業開始前
-  
+
     //返す値はその日の授業開始時刻と現在時刻の差分
     var data1 = new Date(years,monthes,today,hours,mins,secs);
     var data2 = new Date(years,monthes,today+t3,k1,k2,0);
     var diff = data2-data1;
     document.getElementById('settime').textContent = diff;
   */
-  
+
 
 
 
@@ -370,13 +370,14 @@ function searchtime(){
     var data1 = new Date(years,monthes,today,hours,mins,secs);
     var data2 = new Date(years,monthes,today+t3,k1,k2,0);
     var diff = data2-data1;
-    document.getElementById('settime').textContent = diff;
+    document.getElementById('settime').textContent = (diff/(3600*1000)).toFixed(0);
     return diff;
   }
   //現在時刻が時間は授業開始時間と同じ
   if(t1==0){
     var data1 = new Date(years,monthes,today,hours,mins,secs+5);
     var diff = (data1.getTime() - data1.getTime() + 10000);
+    document.getElementById('settime').textContent = (diff/(3600*1000)).toFixed(0);
     return diff;
   }
   //現在時刻が授業開始時刻を過ぎている
@@ -413,6 +414,7 @@ function searchtime(){
       var data1 = new Date(years,monthes,today,hours,mins,secs);
       var data2 = new Date(years,monthes,today+t3,kaishiji,kaishihun,0);
       var diff = data2-data1;
+      document.getElementById('settime').textContent = (diff/(3600*1000)).toFixed(0);
       return diff;
   }
   return 10;
@@ -424,9 +426,9 @@ var app = {
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
     },
     onDeviceReady: function() {
-      //setTimeout(function(){
-       //navigator.geolocation.getCurrentPosition(getSuccess, geoError, { enableHighAccuracy: true });
-     //}, searchtime());
+      setTimeout(function(){
+       navigator.geolocation.getCurrentPosition(getSuccess, geoError, { enableHighAccuracy: true });
+     }, searchtime());
     /*setTimeout(function(){window.location.href = 'http://192.168.0.101:3000'}, 10000);
       var tweet_btn = document.getElementById('tweet-start');*/
     }
