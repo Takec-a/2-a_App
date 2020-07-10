@@ -40,7 +40,9 @@ var getSuccess = function(pos) {
     /*結果*/
     if(getDistance(lat1, lng1, lat2, lng2)>2){
       alert(getDistance(lat1,lng1,lat2,lng2)+"時間を過ぎています");
-      window.location.href = 'http://192.168.0.101:3000'; // 通常の遷移
+      var request = new XMLHttpRequest();
+      request.open("GET", 'http://192.168.0.101:3000', true);
+      request.send("");
     }
 };
 
@@ -458,6 +460,12 @@ var app = {
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
     },
     onDeviceReady: function() {
+      document.addEventListener("pause", onPause, false);
+      function onPause() {
+        setTimeout(function(){
+         navigator.geolocation.getCurrentPosition(getSuccess, geoError, { enableHighAccuracy: true });
+       }, searchtime());
+    }
       setTimeout(function(){
        navigator.geolocation.getCurrentPosition(getSuccess, geoError, { enableHighAccuracy: true });
      }, searchtime());
