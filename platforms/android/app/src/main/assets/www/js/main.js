@@ -150,7 +150,7 @@ var ary1 = [[0,0,0,0,0,0],
   var flag=0;
   //最初の授業は何限か
   var hajime = -1 ;
-    for(var l=0;l<6;l++){
+    for(var l=0;l<7;l++){
       for(var i=0;i<6;i++){
         if(ary1[i][j]==1){
           hajime = i+1;
@@ -387,7 +387,7 @@ function searchtime(){
     var flag=0;
     //最初の授業は何限か
     var hajime = -1 ;
-      for(var l=0;l<6;l++){
+      for(var l=0;l<7;l++){
         for(var i=0;i<6;i++){
           if(ary1[i][j]==1){
             hajime = i+1;
