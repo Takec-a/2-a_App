@@ -148,8 +148,12 @@ var ary1 = [[0,0,0,0,0,0],
   //曜日を指定
   var j = youbi-1;
   var flag=0;
+  var flag2=0;
+  var cnt=0;
   //最初の授業は何限か
   var hajime = -1 ;
+  localStorage.removeItem("flag2");
+  localStorage.setItem("flag2",flag2);
     for(var l=0;l<7;l++){
       for(var i=0;i<6;i++){
         if(ary1[i][j]==1){
@@ -164,6 +168,12 @@ var ary1 = [[0,0,0,0,0,0],
      j=(j+1)%7;
      if(flag==1){
        break;
+     }
+     cnt++;
+     if(cnt==7){
+       flag2=1;
+       localStorage.removeItem("flag2");
+       localStorage.setItem("flag2",flag2);
      }
     }
   document.getElementById('hajime').textContent = hajime;
@@ -353,11 +363,17 @@ function searchtime(){
   str0=localStorage.getItem("kaishiji");
   str1=localStorage.getItem("kaishihun");
   str2=localStorage.getItem("kaishiyoubi");
+  str3=localStorage.getItem("flag2");
 
   var k1 = parseInt(str0);
   var k2 = parseInt(str1);
   var k3 = parseInt(str2);
+  var k4 = parseInt(str3);
 
+  if(k4 != 0){
+    alert("時間割いれちくり～～～～～");
+    window.location.href = 'jikanwari.html'; // 通常の遷移
+  }
   var t1 = k1-hours;
   var t2 = k2-mins;
   var t3 = k3-(youbi-1);
@@ -374,16 +390,16 @@ function searchtime(){
     return diff;
   }
   //現在時刻が時間は授業開始時間と同じ
-  if(t1==0){
+  if(t1==0 && t3==0){
     var data1 = new Date(years,monthes,today,hours,mins,secs+5);
-    var diff = (data1.getTime() - data1.getTime() + 10000);
-    document.getElementById('settime').textContent = (diff/(3600*1000)).toFixed(0);
+    var diff = 10000;
+    document.getElementById('settime').textContent = diff;
     return diff;
   }
   //現在時刻が授業開始時刻を過ぎている
-  if(t1<0){
+  if(t1<=0){
     //最初の授業は何限か
-    var j = (youbi+1)%7;
+    var j = (youbi)%7;
     var flag=0;
     //最初の授業は何限か
     var hajime = -1 ;
@@ -414,6 +430,9 @@ function searchtime(){
       var data1 = new Date(years,monthes,today,hours,mins,secs);
       var data2 = new Date(years,monthes,today+t3,kaishiji,kaishihun,0);
       var diff = data2-data1;
+      document.getElementById('kaishiji').textContent = kaishiji;
+      document.getElementById('kaishihun').textContent = kaishihun;
+      document.getElementById('hajime').textContent = hajime;
       document.getElementById('settime').textContent = (diff/(3600*1000)).toFixed(0);
       return diff;
   }
