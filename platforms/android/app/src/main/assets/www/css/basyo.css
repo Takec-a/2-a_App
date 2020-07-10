@@ -23,7 +23,7 @@
     top: 500px; /* 下に 10px 下げる */
   }
   .under {
-    top: 500px; /* 下に 10px 下げる */
+    /*top: 500px; /* 下に 10px 下げる */
   }
   p {
     font-size:24px;
@@ -37,12 +37,13 @@
      -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
      -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
      -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
-     background-color:#E4E4E4;
-    /* background-image:url(../img/yaruki_aru_man.png);
-     background-size:contain ;*/
+     background-color:#6b8e23;
+     background-image:url(../img/logo01.jpg);
+     background-repeat:no-repeat;
+     background-size:cover ;
      font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
      font-size:12px;
-     height:100vh;
+     height:100%;
      margin:0px;
      padding:0px;
      /* Padding to avoid the "unsafe" areas behind notches in the screen */
