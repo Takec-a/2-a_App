@@ -154,6 +154,10 @@ body {
   text-align: center;
   color: #800000;
 }
+.sub_set {
+  font-size: 20px;
+  font-weight:bold;
+}
 aside {
   text-align: center;
 }
