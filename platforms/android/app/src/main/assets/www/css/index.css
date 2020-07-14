@@ -17,12 +17,14 @@
  * under the License.
  */
  * {
+   text-align: center;
    margin:0; padding:0;
  }
  footer {
    top: 500px; /* 下に 10px 下げる */
  }
  .under {
+   text-align: center;
    top: 500px; /* 下に 10px 下げる */
  }
  p1 {
@@ -31,31 +33,9 @@
  p2 {
    font-size:24px;
    font-weight:normal;
-   margin:0px;
    overflow:visible;
-   padding:0px;
    text-align:center;
     }
-body {
-    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
-    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
-    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
-    background-color:#6b8e23;
-    background-image:url(../img/logo01.jpg);
-    background-repeat:no-repeat;
-    background-size:cover ;
-    /*background-position-y: bottom;*/
-    font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
-    font-size:12px;
-    height:100%;
-    margin:0px;
-    padding:0px;
-    /* Padding to avoid the "unsafe" areas behind notches in the screen */
-    padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-right, 0px);
-    text-transform:uppercase;
-    width:100%;
-    align: center;
-}
 
 /* Portrait layout (default) */
 .app {
@@ -65,7 +45,7 @@ body {
     top:50%;
     height:50px;                   /* text area height */
     width:225px;                   /* text area width */
-    text-align:center;
+    text-align: center;
     padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
     margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
                                    /* offset horizontal: half of text area width */
@@ -80,16 +60,50 @@ body {
                                       /* offset horizontal: half of image width and text area width */
     }
 }
+@import url('https://fonts.googleapis.com/earlyaccess/hannari.css');
 
 h1 {
-    font-size:32px;
+    font-size:48px;
     font-weight:bold;
-    font-family:"Meiryo";
-    margin:0px;
+    font-family: "游ゴシック";
+    color: #ffffff;
     overflow:visible;
-    padding:0px;
+    padding: 10% 0;
     text-align:center;
+    background-image:url(../img/alerm01.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: none;
 }
+
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    /*背景画像を消去して、グラデーションを挿入*/
+    /*background-color:#6b8e23;
+    background-image:url(../img/logo01.jpg);
+    background-repeat:no-repeat;
+    background-size:cover ;*/
+    /*background-position-y: bottom;*/
+    background: #CCCCCC;
+    background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%);
+    background-image: linear-gradient(-180deg, rgba(255, 255, 255, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%);
+    background-position: left top;
+    background-repeat:no-repeat;
+    background-size: auto 2000px;
+    font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
+    font-size:12px;
+    height:100%;
+    margin:0px;
+    padding:0px;
+    /* Padding to avoid the "unsafe" areas behind notches in the screen */
+    padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-right, 0px);
+    text-transform:uppercase;
+    width:100%;
+    align: center;
+}
+
 
 .event {
     border-radius:4px;
@@ -139,3 +153,23 @@ h1 {
   text-align: center;
   color: #800000;
 }
+aside {
+  text-align: center;
+}
+/*ボタンのデザイン*/
+.btn-square {
+      display: inline-block;
+      padding: 0.5em 1em;
+      text-decoration: none;
+      background: #333333;
+      color: #ffffdd;
+      border-bottom: solid 4px #999999;
+      border-radius: 3px;
+    }
+/*ボタンの挙動*/
+  .btn-square:active {
+      /*ボタンを押したとき*/
+      -webkit-transform: translateY(4px);
+      transform: translateY(4px); /*下に動く*/
+      border-bottom: none; /*線を消す*/
+    }

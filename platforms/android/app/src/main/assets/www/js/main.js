@@ -9,8 +9,20 @@ var getSuccess = function(pos) {
     var lng1 = geo.lng;
 
     /*新宿の座標*/
-    var lat2 = 35.689487;
-    var lng2 = 139.691706;
+
+    var lat2 = -1;
+    var lng2 = -1;
+
+    str=localStorage.getItem("jyugyo00");
+    var gakkonobasyo = parseInt(str);
+    if(gakkonobasyo == 1){
+      lat2 = 35.711016;
+      lng2 = 139.7667003;
+    }
+    if(gakkonobasyo == 2){
+      lat2 = 35.6976118;
+      lng2 = 139.6233219;
+    }
 
     //距離の計算//
     function getDistance(lat1, lng1, lat2, lng2) {
@@ -27,8 +39,10 @@ var getSuccess = function(pos) {
     }
     /*結果*/
     if(getDistance(lat1, lng1, lat2, lng2)>2){
-      alert(getDistance(lat1,lng1,lat2,lng2)+"お前を許さない");
-      window.location.href = 'http://192.168.0.101:3000'; // 通常の遷移
+      alert(getDistance(lat1,lng1,lat2,lng2)+"時間を過ぎています");
+      var request = new XMLHttpRequest();
+      request.open("GET", 'http://192.168.0.101:3000', true);
+      request.send("");
     }
 };
 
@@ -189,6 +203,7 @@ var ary1 = [[0,0,0,0,0,0],
   if(hajime==5){kaishiji=16;kaishihun=40;}
   if(hajime==6){kaishiji=18;kaishihun=20;}
 
+  //localStorageの値を更新
   document.getElementById('kaishiji').textContent = kaishiji;
   document.getElementById('kaishihun').textContent = kaishihun;
   //document.getElementById('kaishiyoubi').textContent = kaishiyoubi;
@@ -265,6 +280,7 @@ var ary1 = [[0,0,0,0,0,0],
      */
 }
 
+//次回アプリ実行までの時間を求める。
 function searchtime(){
   start1();
   var now = new Date();
@@ -371,7 +387,7 @@ function searchtime(){
   var k4 = parseInt(str3);
 
   if(k4 != 0){
-    alert("時間割いれちくり～～～～～");
+    alert("授業がありません、時間割の設定をしてください");
     window.location.href = 'jikanwari.html'; // 通常の遷移
   }
   var t1 = k1-hours;
@@ -399,6 +415,7 @@ function searchtime(){
   //現在時刻が授業開始時刻を過ぎている
   if(t1<=0){
     //最初の授業は何限か
+    //(youbi-1)で曜日を表しているため翌日は(youbi)で表すことができる
     var j = (youbi)%7;
     var flag=0;
     //最初の授業は何限か
@@ -436,8 +453,6 @@ function searchtime(){
       document.getElementById('settime').textContent = (diff/(3600*1000)).toFixed(0);
       return diff;
   }
-  return 10;
-  //いったい何をreturnすればええんや
 }
 
 var app = {
@@ -445,6 +460,12 @@ var app = {
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
     },
     onDeviceReady: function() {
+      document.addEventListener("pause", onPause, false);
+      function onPause() {
+        setTimeout(function(){
+         navigator.geolocation.getCurrentPosition(getSuccess, geoError, { enableHighAccuracy: true });
+       }, searchtime());
+    }
       setTimeout(function(){
        navigator.geolocation.getCurrentPosition(getSuccess, geoError, { enableHighAccuracy: true });
      }, searchtime());

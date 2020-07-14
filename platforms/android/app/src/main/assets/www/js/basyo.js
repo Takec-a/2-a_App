@@ -27,7 +27,7 @@ function start3(){
 }
 
 function clickBtn2(){
-//いろいろあってlocalStorageの値を更新
+//localStorageの値を更新
     localStorage.removeItem("gakko");
     
     

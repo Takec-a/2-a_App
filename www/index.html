@@ -4,11 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/backGraund_img.css">
     <script type="text/javascript" src="js/jquery-3.5.1.min"></script>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
     <title>遅刻防止アプリ</title>
 </head>
+    <h1><br></h1>
     <body>
         <div class="app">
             <!--<h1>遅刻防止アプリ</h1>-->
@@ -39,13 +41,14 @@
                     </tr>
                     <br>
                     <p2>SMGメニュー</p2><br>
-                    <button onclick="window.plugins.socialsharing.share('Test Message')">MSG Share</button>
+                    <!--ボタンのデザインをindex.cssに追加-->
+                    <button href="#" class="btn-square" onclick="window.plugins.socialsharing.share('Test Message')">MSG Share</button>
                 </div>
                 <div>
                     <aside>
-                        <h2 class="sub-title">メニュー</h2>
-                        <button type="button" onclick="location.href='jikanwari.html';">時間割</button>
-                        <button type="button" onclick="location.href='basyo.html';">場所</button>
+                        <h2 class="sub_set">メニュー</h2>
+                        <button href="#" class="btn-square" type="button" onclick="location.href='jikanwari.html';">時間割</button>
+                        <button href="#" class="btn-square" type="button" onclick="location.href='basyo.html';">場所</button>
                     </aside>
                 </div>
         </div>

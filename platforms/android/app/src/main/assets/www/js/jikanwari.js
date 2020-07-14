@@ -141,7 +141,7 @@ var ary1 = [[0,0,0,0,0,0],
 }
 
 function clickBtn1(){
-//いろいろあってlocalstorageの値を更新
+//localstorageの値を更新
 
     localStorage.removeItem("jyugyo00");
     localStorage.removeItem("jyugyo01");
