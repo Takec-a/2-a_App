@@ -13,7 +13,7 @@ var getSuccess = function(pos) {
     var lat2 = -1;
     var lng2 = -1;
 
-    str=localStorage.getItem("jyugyo00");
+    str=localStorage.getItem("gakko");
     var gakkonobasyo = parseInt(str);
     if(gakkonobasyo == 1){
       lat2 = 35.711016;
