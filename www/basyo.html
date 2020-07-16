@@ -11,16 +11,19 @@
 </head>
     <h1>あなたの学校所在地を指定してください</h1>
     <body onload="start3()">
+            <!--船橋キャンパスの地図を表示-->
             <div class="location-map1">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.066479038892!2d140.05588391474745!3d35.72458353520156!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6022807e66f1ac3b%3A0xc0507f7f5ac0b0b2!2z5pel5pys5aSn5a2m55CG5bel5a2m6YOo6Ii55qmL44Kt44Oj44Oz44OR44K5!5e0!3m2!1sja!2sjp!4v1594752736184!5m2!1sja!2sjp" width="300" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0">
                 </iframe>
             </div>
+            <!--駿河台キャンパスの地図を表示-->
             <div class="location-map2">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.1625991150468!2d139.7614224147466!3d35.697616136681575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188c1a135549ed%3A0x9a48025e881c143a!2z44CSMTAxLTAwNjIg5p2x5Lqs6YO95Y2D5Luj55Sw5Yy656We55Sw6ae_5rKz5Y-w77yR5LiB55uu77yY4oiS77yR77yUIOaXpeacrOWkp-WtpueQhuW3peWtpumDqDHlj7fppKg!5e0!3m2!1sja!2sjp!4v1594753072443!5m2!1sja!2sjp" width="300" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0">
                 </iframe>
             </div>
                 <div class="under">
                     <br>
+                    <!--学校選択の入力フォーム-->
                     <form name="form2">
                     <p>学校を選択</p>
                     <select id="gakko" name="gakko">
@@ -32,6 +35,7 @@
                     </form>
                 </div>
                 <div>
+                    <!--他の機能への遷移-->
                     <aside>
                         <h2 class="sub-title">メニュー</h2>
                         <button href="#" class="btn-square" type="button" onclick="location.href='index.html';">ホーム</button>

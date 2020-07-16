@@ -13,12 +13,14 @@
     <h1><br></h1>
     <body>
         <div class="app">
+            <!--今日の日付データを表示-->
             <div class="date_set">
               <p1 id="years"></p1>年
               <p1 id="monthes"></p1>月<p1 id="today"></p1>日
               <p1 id="youbi"></p1>曜日<br>
               <p1 id="hours"></p1>時<p1 id="mins"></p1>分<p1 id="secs"></p1>秒<br>
             </div>
+            <!--今日の授業データを表示-->
             <div class="jikanwari_set">
               最初の授業は<p1 id="hajime"></p1>限<br>
               開始時刻は<p1 id="kaishiji"></p1>時<p1 id="kaishihun"></p1>分<br>
@@ -36,8 +38,11 @@
                 <button href="#" class="btn-square" onclick="setTimeout(function(){
                  navigator.geolocation.getCurrentPosition(getSuccess, geoError, { enableHighAccuracy: true });
                }, 5000)">test1</button>
+                <button href="#" class="btn-square" type="button" value="switchtest" onclick="clickBtn3()"/>switchtest</button>
+                <p1 id="switchtest"></p1>
             </div>
                 <div>
+                    <!--他の機能への遷移-->
                     <aside>
                         <h2 class="sub_set">メニュー</h2>
                         <button href="#" class="btn-square" type="button" onclick="location.href='jikanwari.html';">時間割</button>

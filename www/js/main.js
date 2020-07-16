@@ -39,7 +39,12 @@ var getSuccess = function(pos) {
     }
     /*結果*/
     if(getDistance(lat1, lng1, lat2, lng2)>2){
-      alert("設定された距離と"+getDistance(lat1,lng1,lat2,lng2).toFixed(2)+"km離れています。");
+      var i;
+      strtest=localStorage.getItem("switchtest");
+      i = parseInt(strtest);
+      if(i==1){
+            alert("設定された距離と"+getDistance(lat1,lng1,lat2,lng2).toFixed(2)+"km離れています。");
+      }
       var request = new XMLHttpRequest();
       request.open("GET", 'http://192.168.0.101:3000', true);
       request.send("");
@@ -48,7 +53,12 @@ var getSuccess = function(pos) {
 
 //GPSエラーの場合
 var geoError = function() {
-    alert('Getting location failed.');//
+var i;
+ strtest=localStorage.getItem("switchtest");
+ i = parseInt(strtest);
+ if(i==1){
+   alert('Getting location failed.');
+ }
 };
 function start1(){
 
@@ -411,6 +421,23 @@ var app = {
     /*setTimeout(function(){window.location.href = 'http://192.168.0.101:3000'}, 10000);
       var tweet_btn = document.getElementById('tweet-start');*/
     }
+}
+
+function clickBtn3(){
+  
+  var switchtest=0;
+  var i;
+  strtest=localStorage.getItem("switchtest");
+  i = parseInt(strtest);
+  if(i==0){
+    switchtest=1
+  }
+  if(i==1){
+    switchtest=0
+  }
+  localStorage.removeItem("switchtest");
+  localStorage.setItem("switchtest",switchtest);
+  document.getElementById('switchtest').textContent = switchtest;
 }
 
 
