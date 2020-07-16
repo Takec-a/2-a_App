@@ -7,8 +7,6 @@ server.on('request', doRequest);
 
 // リクエストの処理
 function doRequest(req, res) {
-    res.writeHead(200, {'Content-Type': 'text/plain'});
-    res.write('Hello World\n');
     var Twitter = require('twitter');
 
     var client = new Twitter({
