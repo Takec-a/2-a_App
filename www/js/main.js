@@ -16,12 +16,12 @@ var getSuccess = function(pos) {
     str=localStorage.getItem("gakko");
     var gakkonobasyo = parseInt(str);
     if(gakkonobasyo == 1){
-      lat2 = 35.711016;
-      lng2 = 139.7667003;
+      lat2 = 35.724263;
+      lng2 = 140.058458;
     }
     if(gakkonobasyo == 2){
-      lat2 = 35.6976118;
-      lng2 = 139.6233219;
+      lat2 = 35.698037;
+      lng2 = 139.76438;
     }
 
     //距離の計算//
