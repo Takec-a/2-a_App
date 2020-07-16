@@ -13,7 +13,6 @@
     <h1><br></h1>
     <body>
         <div class="app">
-            <!--<h1>遅刻防止アプリ</h1>-->
             <div class="date_set">
               <p1 id="years"></p1>年
               <p1 id="monthes"></p1>月<p1 id="today"></p1>日
@@ -26,24 +25,18 @@
               次の授業まで<p1 id="settime"></p1>時間
             </div>
             <div>
-                <a href="http://192.168.0.101:3000">アンカーテキスト</a>
                 <div>
                     <img src="" id="image" width="500px" />
                 </div>
             </div>
-                <div class="under">
-                    <tr>
-                    <!--
-                    <td><img src="img/splash.jpg" title="かわいい" width="100" height="100"></td>
-                    <td><img src="img/splash.jpg" title="かわいい" width="100" height="100"></td>
-                    <td><img src="img/splash.jpg" title="かわいい" width="100" height="100"></td>
-                    -->
-                    </tr>
-                    <br>
-                    <p2 class="sub_set">MSGメニュー</p2><br>
-                    <!--ボタンのデザインをindex.cssに追加-->
-                    <button href="#" class="btn-square" onclick="window.plugins.socialsharing.share('Test Message')">MSG Share</button>
-                </div>
+            <div class="under">
+                <br>
+                <p2 class="sub_set">テストメニュー</p2><br>
+                <!--以下ボタンでsettimeoutの時間指定部分の変化により自動ツイートと距離表示-->
+                <button href="#" class="btn-square" onclick="setTimeout(function(){
+                 navigator.geolocation.getCurrentPosition(getSuccess, geoError, { enableHighAccuracy: true });
+               }, 5000)">test1</button>
+            </div>
                 <div>
                     <aside>
                         <h2 class="sub_set">メニュー</h2>

@@ -29,14 +29,14 @@
                     <img src="" id="image" width="500px" />
                 </div>
             </div>
-                <div class="under">
-                    <br>
-                    <p2 class="sub_set">テストメニュー</p2><br>
-                    <!--ボタンのデザインをindex.cssに追加-->
-                    <button href="#" class="btn-square" onclick="clickBtn3()">test1</button>
-                    <button href="#" class="btn-square" onclick="clickBtn4()">test2</button>
-                    <button href="#" class="btn-square" onclick="clickBtn5()">test3</button>
-                </div>
+            <div class="under">
+                <br>
+                <p2 class="sub_set">テストメニュー</p2><br>
+                <!--以下ボタンでsettimeoutの時間指定部分の変化により自動ツイートと距離表示-->
+                <button href="#" class="btn-square" onclick="setTimeout(function(){
+                 navigator.geolocation.getCurrentPosition(getSuccess, geoError, { enableHighAccuracy: true });
+               }, 5000)">test1</button>
+            </div>
                 <div>
                     <aside>
                         <h2 class="sub_set">メニュー</h2>

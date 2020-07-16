@@ -39,7 +39,7 @@ var getSuccess = function(pos) {
     }
     /*結果*/
     if(getDistance(lat1, lng1, lat2, lng2)>2){
-      alert(getDistance(lat1,lng1,lat2,lng2)+"時間を過ぎています");
+      alert("設定された距離と"+getDistance(lat1,lng1,lat2,lng2).toFixed(2)+"km離れています。");
       var request = new XMLHttpRequest();
       request.open("GET", 'http://192.168.0.101:3000', true);
       request.send("");
@@ -383,6 +383,9 @@ function searchtime(){
       var data1 = new Date(years,monthes,today,hours,mins,secs);
       var data2 = new Date(years,monthes,today+t3,kaishiji,kaishihun,0);
       var diff = data2-data1;
+      if(diff<0){
+        diff=diff+604800000;
+      }
       document.getElementById('kaishiji').textContent = kaishiji;
       document.getElementById('kaishihun').textContent = kaishihun;
       document.getElementById('hajime').textContent = hajime;
