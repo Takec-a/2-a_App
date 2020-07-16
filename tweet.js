@@ -17,7 +17,7 @@ function doRequest(req, res) {
     access_token_key: "1276377376822145024-DXqB74JbafWtUgAaIctPlSZ4xWfP1J",
     access_token_secret: "J0JYGvizdNeJbYZQI29Sottp8awwyQl8uXvB40Fo0XUPF"
     });
-    client.post('statuses/update', {status: "ツイttーddkoodt4thghgyトsも出t来るかな？"}, function(error, tweet, response){
+    client.post('statuses/update', {status: "testツイートです。アプリによって遅刻が検知されました。"}, function(error, tweet, response){
       if (!error) {
           console.log(tweet);
 
