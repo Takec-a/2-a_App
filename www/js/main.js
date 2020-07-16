@@ -8,7 +8,7 @@ var getSuccess = function(pos) {
     var lat1 = geo.lat;
     var lng1 = geo.lng;
 
-    /*新宿の座標*/
+    /*学校の座標*/
 
     var lat2 = -1;
     var lng2 = -1;
@@ -214,70 +214,6 @@ var ary1 = [[0,0,0,0,0,0],
   localStorage.setItem("kaishihun",kaishihun);
   //localStorage.setItem("kaishiyoubi",kaishiyoubi);
 
-
-  //差分ミリ秒参考
-  /*
-  str0=localStorage.getItem("kaishiji");
-  str1=localStorage.getItem("kaishihun");
-  str2=localStorage.getItem("kaishiyoubi");
-
-  var k1 = parseInt(str0);
-  var k2 = parseInt(str1);
-  var k3 = parseInt(str2);
-
-  var t1 = k1-hours;
-  var t2 = k2-mins;
-  var t3 = k3-(youbi-1);
-  if(t3<0){
-    t3=7-(-1*t3);
-  }
-  //現在時刻が授業開始前
-
-    //返す値はその日の授業開始時刻と現在時刻の差分
-    var data1 = new Date(years,monthes,today,hours,mins,secs);
-    var data2 = new Date(years,monthes,today+t3,k1,k2,0);
-    var diff = data2-data1;
-    document.getElementById('settime').textContent = diff;
-  */
-
-
-
-
-/*
-
-  if(t1<0){
-    var jikai = -1;
-    j=j+1;
-    while(jikai==-1){
-      for(var i=0;i<6;i++){
-        if(ary1[i][j]==1){
-          jikai = i+1;
-
-         break;
-       }
-      }
-      if(i==6){
-        j++;
-        if(j==6){
-          j=0;
-        }
-      }
-    }
-    //最初の授業開始時刻を求める
-    var kaishiji = -1;
-    var kaishihun = -1;
-
-    if(jikai==1){kaishiji=9;kaishihun=0;}
-    if(jikai==2){kaishiji=10;kaishihun=40;}
-    if(jikai==3){kaishiji=13;kaishihun=20;}
-    if(jikai==4){kaishiji=15;kaishihun=0;}
-    if(jikai==5){kaishiji=16;kaishihun=40;}
-    if(jikai==6){kaishiji=18;kaishihun=20;}
-    document.getElementById('tsuginohi').textContent = weekday[j+1];
-    document.getElementById('t1').textContent = kaishiji;
-    document.getElementById('t2').textContent = kaishihun;
-  }
-     */
 }
 
 //次回アプリ実行までの時間を求める。
