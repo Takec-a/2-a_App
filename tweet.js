@@ -10,10 +10,10 @@ function doRequest(req, res) {
     var Twitter = require('twitter');
 
     var client = new Twitter({
-    consumer_key:"KYfssu00jmzlvIvvHA3vJY5Mb",
-    consumer_secret: "ON20Fnb9GMbyAQfhWClZBawIa20cMnUBGXppMPg081MFa2WWCd",
-    access_token_key: "1276377376822145024-DXqB74JbafWtUgAaIctPlSZ4xWfP1J",
-    access_token_secret: "J0JYGvizdNeJbYZQI29Sottp8awwyQl8uXvB40Fo0XUPF"
+    consumer_key:"",
+    consumer_secret: "",
+    access_token_key: "",
+    access_token_secret: ""
     });
     client.post('statuses/update', {status: "testツイートです。アプリによって遅刻が検知されました。"}, function(error, tweet, response){
       if (!error) {
