@@ -8,4 +8,32 @@
 
 ### 使用方法
 ![無題3](https://user-images.githubusercontent.com/63152505/101282690-e018ed80-3819-11eb-87c2-8a341faa9920.png)
+<br>
+### デモ画像（ホーム画面）
+![無題](https://user-images.githubusercontent.com/63152505/101282741-240bf280-381a-11eb-8202-fd141114ebd1.png)
+<br>
+現在の時刻と、設定された
+・翌日以降の最初の時限
+・それの開始時刻
+・現在時間から換算して何時間後か
+が赤文字で表示されている。
+<br>
+### 設定画面⓵
+![無題2](https://user-images.githubusercontent.com/63152505/101282798-777e4080-381a-11eb-814f-a64bf358671c.png)
+<br>
+ここに授業が有るなら”有”、無いなら”無”を入れることによって授業予定をセットできる。
+<br>
+### 設定画面⓶
+![無題6](https://user-images.githubusercontent.com/63152505/101282910-068b5880-381b-11eb-91c6-ac062d56619f.png)
+<br>
+ここに所属している大学の所在地を入力する。現バージョンでは船橋校舎、駿河台校舎の2つのみ選択できるようになっている。
+<br>
+### 授業当日
+![無題4](https://user-images.githubusercontent.com/63152505/101282851-b9a78200-381a-11eb-9916-6c290127f022.png)
+<br>
+授業当日になると、現在地と設定された大学との所在地の距離が算出され、それが2km以上であると、画像のようなAlertと共に、設定されたTwitterアカウントへの投稿が行われる。
+### 授業当日（Twitter）
+![無題5](https://user-images.githubusercontent.com/63152505/101282987-6bdf4980-381b-11eb-8a36-192bea6b8160.png)
+<br>
+Twitterアカウントへの投稿。
 
