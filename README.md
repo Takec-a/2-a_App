@@ -19,7 +19,7 @@
 が赤文字で表示されている。
 <br>
 ### 設定画面⓵
-![無題2](https://user-images.githubusercontent.com/63152505/101282798-777e4080-381a-11eb-814f-a64bf358671c.png)
+![無題2](https://user-images.githubusercontent.com/63152505/101283057-b365d580-381b-11eb-8a30-9b9a520f4c8d.png)
 <br>
 ここに授業が有るなら”有”、無いなら”無”を入れることによって授業予定をセットできる。
 <br>
@@ -31,7 +31,7 @@
 ### 授業当日
 ![無題4](https://user-images.githubusercontent.com/63152505/101282851-b9a78200-381a-11eb-9916-6c290127f022.png)
 <br>
-授業当日になると、現在地と設定された大学との所在地の距離が算出され、それが2km以上であると、画像のようなAlertと共に、設定されたTwitterアカウントへの投稿が行われる。
+授業当日になると、現在地と設定された大学との所在地の距離が算出され、それが2km以上であると、遅刻と判定され、画像のようなAlertと共に、設定されたTwitterアカウントへの投稿が行われる。
 ### 授業当日（Twitter）
 ![無題5](https://user-images.githubusercontent.com/63152505/101282987-6bdf4980-381b-11eb-8a36-192bea6b8160.png)
 <br>
